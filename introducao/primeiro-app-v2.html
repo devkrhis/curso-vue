@@ -1,0 +1,20 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <input type="text" v-on:input="alterarTitulo"> <!-- v-on:input dessa forma eu estou tratando eventos doo tipo input, eu chamado a função alterarTitulo -->
+    <p> {{ titulo }} </p> <!-- O que tiver dentro do {{}} vai ser interpretado pelo framework vue. -->
+</div>
+
+<script>
+    new Vue({ // instanciando uma função 
+        el: '#app', // qual o elemento se quer aplicar, qual o trecho de html se quer controlar, sendo assim quero controlar o app, então coloco dessa forma #app
+        data: { // data eu posso definir vários objetos e controlar os mesmos, dessa forma.
+            titulo: 'Usando VUEJS 2!'
+        },
+        methods: { // aqui dentro eu passo metodos que serão executados quando ocontecer algum evento no html.
+            alterarTitulo(event){ // event é o parametro
+                this.titulo = event.target.value // apartir do event eu mudo o html dessa forma, é necessário colocar o this.
+            }
+        }
+    })
+</script>

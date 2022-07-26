@@ -1,0 +1,14 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p> {{ titulo }} </p> <!-- O que tiver dentro do {{}} vai ser interpretado pelo framework vue. -->
+</div>
+
+<script>
+    new Vue({ // instanciando uma função 
+        el: '#app', // qual o elemento se quer aplicar, qual o trecho de html se quer controlar, sendo assim quero controlar o app, então coloco dessa forma #app
+        data: { // data eu posso definir vários objetos e controlar os mesmos, dessa forma.
+            titulo: 'Usando VUEJS 2!'
+        }
+    })
+</script>
