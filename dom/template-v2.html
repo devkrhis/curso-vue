@@ -3,7 +3,7 @@
 
 <div id="app">
     <p> {{ titulo }} </p>
-    <p> {{ saudacao() }} </p> <!-- Dessa forma eu estou chamando-->
+    <p> {{ saudacao() }} </p> <!-- Dessa forma com 'saudacao()' eu estou chamando este metodo e consigo acessar ele-->
 </div>
 
 <script>
@@ -14,7 +14,7 @@
         },
         methods: {
             saudacao: function(){
-                return 'Boa Semana'
+                return 'Boa Semana' // esse metodo retorna uma string, porque tem return.
             }
         }
     })
