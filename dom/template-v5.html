@@ -1,8 +1,9 @@
-<!-- Aula 20 Entendendo e usando diretivas  -->
+<!-- Aula 21 Evitando Re-Renderização com v-once  -->
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
 <div id="app">
-    <p> {{ titulo }} </p>
+    <p v-once>{{ titulo }} </p> <!-- O v-once ele lê o valor uma unica vez, substituir o valor e colocar diretamente na tag p, mas ele não fica monitorando
+    sendo assim vai aparecer usando o VUEJS, pois ele resolve a primeira vez o valor e não atualiza o mesmo.-->
     <p> {{ saudacao() }} </p>
     <a v-bind:href="link">Google</a> <!---->
 </div>
@@ -17,6 +18,7 @@
         },
         methods: {
             saudacao: function(){
+                this.titulo = 'Bom dia!!!'
                 return this.titulo
             }
         }
