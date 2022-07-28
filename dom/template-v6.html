@@ -1,0 +1,29 @@
+<!-- Aula 22 Como Imprimir HTML Puro  -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p v-once>{{ titulo }} </p> <!-- O v-once ele lê o valor uma unica vez, substituir o valor e colocar diretamente na tag p, mas ele não fica monitorando
+    sendo assim vai aparecer usando o VUEJS, pois ele resolve a primeira vez o valor e não atualiza o mesmo.-->
+    <p> {{ saudacao() }} </p>
+    <a v-bind:href="link">Google</a> <!---->
+    <hr>
+    <p v-html="linkHtml"></p> <!-- o v-html você coloca diretamente o valor, sendo assim ele passa para a tag p o link, tudo que for interpretado dentro do linkHtml ele vai passar para dentro da tag P -->
+</div>
+
+<script>
+    // você não pode ter o mesmo dado e uma função com o mesmo nome, pois apresenta erro, exemplo se eu mudar a minha saudacao para titulo vai dar erro.
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Usando VUEJS!',
+            link: 'http://google.com.br',
+            linkHtml: '<a href="http://gogle.com"></a>'
+        },
+        methods: {
+            saudacao: function(){
+                this.titulo = 'Bom dia!!!'
+                return this.titulo
+            }
+        }
+    })
+</script>
