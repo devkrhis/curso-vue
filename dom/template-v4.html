@@ -1,0 +1,25 @@
+<!-- Aula 19 Binding de atributos  -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p> {{ titulo }} </p>
+    <p> {{ saudacao() }} </p> <!-- Dessa forma com 'saudacao()' eu estou chamando este metodo e consigo acessar ele-->
+    <a v-bind:href="link">Google</a> <!-- Dessa forma com v-bind:href="atributo" essa é a forma que eu referencio, sendo assim vai pegar o link lá de baixo  
+    v-bind serve pra fazer essa ligação do link e então ele vira o google.com.br como você definiu no atributo, depois dos : pontos eu coloco a propriedade que eu quero-->
+</div>
+
+<script>
+    // você não pode ter o mesmo dado e uma função com o mesmo nome, pois apresenta erro, exemplo se eu mudar a minha saudacao para titulo vai dar erro.
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Usando VUEJS!',
+            link: 'http://google.com.br'
+        },
+        methods: {
+            saudacao: function(){
+                return this.titulo // dessa forma estou acessando o valor que está dentro de data.
+            }
+        }
+    })
+</script>
