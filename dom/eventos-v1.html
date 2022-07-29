@@ -1,0 +1,21 @@
+<!-- Aula 25 Escutando Eventos -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p> {{ contador }} </p>
+    <button v-on:click="somar"> Somar 1</button> <!-- v-on ele serve para quando um evento acontecer exemplo: quando clicar no botão ele pega o evento e chama função somar que eu coloquei ali na frente, v-on ele fica "escutando" o evento para chamar a função que você deseja.  -->
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0
+        },
+        methods: {
+            somar(){
+                this.contador++
+            }
+        }
+    })
+</script>
