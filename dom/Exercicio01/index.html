@@ -9,17 +9,17 @@
     
     <!-- 3) Chame uma função para exibir um número randomico
         entre 0 and 1 (Math.random()) -->
-    <p></p>
+    <p>{{ randomico() }}</p>
     
     <!-- 4) Procure uma imagem no google e exiba na tag img 
         fazendo o binding no atributo "src" -->
     <div>
-        <img height="400">
+        <img height="400" v-bind:src="linkImagem">
     </div>
     
     <!-- 5) Inicialize o input com o seu nome (use o atributo "value") -->
     <div>
-        <input type="text">
+        <input type="text" id="krhistopher" name="krhistopher" placeholder="Krhistopher">
     </div>
 </div>
 <script src="app.js"></script>
