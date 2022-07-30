@@ -1,0 +1,36 @@
+<!-- Aula 27 Passando nossos próprios argumentos com eventos -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p> {{ contador }} </p>
+    <button v-on:click="somar(5, $event)"> Somar 1</button> <!-- Declarando somar(5) toda vez que eu clicar no botão ele passa 5 pra function e soma 5 
+    caso eu queira passar o evento, como se fosse uma segunda variavel ai tem uma palavra reservada que faz isto $event, tem que utilizar $event não pode ser outra palavra-->
+    <p v-on:mousemove="atualizarXY"> Mouse: {{ x }} e {{ y }}</p>
+    <input v-on:keyup.enter="apertandoEnter" type="text" placeholder="toda vez que apertar enter aumenta 5 no contador">
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            x: 0,
+            y: 0,
+        },
+        methods: {
+            somar(passo, ev){ // sempre que um evento do browser é chamado, como um mousemovent ou mouseclick, por padrão a gente coloca uma variavel somar(e) pode ser definido qualquer nome o nome não importa.
+                // dessa forma agora o passo se torna (5) e vai ficar somando de 5 em 5, aquii no segundo evento pode passar qualquer nome pode ser ev, event, er
+                this.contador+= passo
+            },
+            atualizarXY(event){
+                this.x = event.clientX
+                this.y = event.clientY
+            },
+            apertandoEnter(){
+                this.contador += 5;
+                console.log("O Enter foi apertado")
+            }
+
+        }
+    })
+</script>
