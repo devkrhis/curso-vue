@@ -1,0 +1,38 @@
+<!-- Aula 28 Modificadores de eventos -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p> {{ contador }} </p>
+    <button v-on:click="somar(5, $event)"> Somar 1</button> 
+    <p v-on:mousemove="atualizarXY"> Mouse: {{ x }} e {{ y }}
+        <span v-on:mousemove.stop.prevent=""> PARAR AQUIII!!!</span> <!-- .stop se chama um modificador de eventos a onde ele PARA de propagar o evento, sendo assim não vai pegar os valores do mouse x e y, não precisa mais criar uma função pra isso, também é possível chamar os dois o stop e o prevent da forma acima.-->
+        <a v-on:click.prevent="" href="https://google.com.br">GOOGLE</a><!-- Também tem outro que se chama preventDefault, que e PREVENIRR o comportamento padrão(default) sendo assim ele não vai até o google. -->
+        <a v-on:click="naoNavegar" href="https://youtube.com.br">YOUTUBE</a> <!-- Também posso criar uma function para isto, desta forma-->
+    </p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            x: 0,
+            y: 0,
+        },
+        methods: {
+            somar(passo, ev){   
+                this.contador+= passo
+            },
+            atualizarXY(event){
+                this.x = event.clientX
+                this.y = event.clientY
+            },
+            naoNavegar(event){
+                event.preventDefault()
+            }
+   //         parar(event){
+   //             event.stopPropagation() // dessa forma eu digo que naquela area não vai pegar os valores do mouse x e y, eu paro o evento.
+   //         }
+        }
+    })
+</script>
