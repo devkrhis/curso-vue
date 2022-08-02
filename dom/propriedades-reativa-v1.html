@@ -5,7 +5,7 @@
     <p> {{ titulo }} </p>
     <input type="text" v-bind:value="titulo" 
         v-on:input="titulo = $event.target.value"> <!-- se eu fizesse apenas o v-bind:value eu iria trocar apenas o valor do html e não o valor do titulo, para eu fazer a troca do valor, eu tenho que colocar o v-on:input="titulo = $event.target.value" sendo assim ele troca o valor do meu titulo automaticamente também, caso não faça ele não troca. o nome disso é two-way-binding onde eu troco o valor e ao mesmo tempo ele muda. 
-        o v-bind ele atualiza apenas o evento do html, sendo assim não modifica, porém o v-on ele fica monitorando para mudar, sendo assim utilizando os dois ele faz uma dupla atualização -->
+        o v-bind ele atualiza apenas o evento da vue instance, sendo assim não modifica, porém o v-on ele fica monitorando e caso eu queira eu posso fazer uma ação nela para realizar a alteração, sendo assim utilizando os dois ele faz uma dupla atualização -->
         <!-- Outra forma de fazer isto: 
         <input type="text" v-model="titulo"> Dessa forma eu faço a troca direto sem precisar o v-bind e o v-on. sendo assim tem uma dupla atualização, o v-model ele atualiza os dados do javascript que são controlados pela instancia do vue, como aquilo que foi atualizado no vue ele afeta diretamente o HTML
         -->
