@@ -9,7 +9,7 @@ new Vue({
         }
     },
     watch: {
-        valor(){
+        resultado(){
             console.log("Passei aqui");
             setTimeout(() => {
                 this.valor = 0;
