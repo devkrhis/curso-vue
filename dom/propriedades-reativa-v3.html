@@ -1,0 +1,52 @@
+<!-- Aula 35 Monitorando as Mudanças -->
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <button v-on:click="aumentar">Aumentar</button>
+    <button v-on:click="contador2++">Aumentar 2</button>
+    <button v-on:click="diminuir">Diminuir</button>
+    <p>Contador: {{ contador }} // {{ contador2}}</p> <!-- Mesmo não tendo nada a ver com o resultado o contador2 ele acaba chamando o metodo, sendo assim temos que utilizar propriedades computadas para não ocorrer isso.-->
+    <p>Resultado: {{ resultado }}</p> <!-- Quando você trabalha com a propriedade computada, se não chama mais como metodo, mas sim como uma propriedade normal sem o () o vuejs entende que o valor alterado que o dentro desse metodo computado não gera nenhum impacto, sendo assim não chama ela igual antes, e mantem uma cache e não precisa chamar de novo a função.-->
+    <!-- <p>Resultado: {{ resultado() }}</p> Dessa forma estou o chamado o resultado como um methods, sendo assim chamando a função resultado-->
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            contador2: 0,
+            // resultado: '' sendo assim eu teria que remover esse resultado daqui
+        },
+        computed: {
+            resultado(){ // Quando eu crio uma função resultado eu não posso haver duplicação
+                console.log("Está chamando esse metodo") 
+                return this.contador >= 5 ? 'Maior  ou igual a 5' : 'Menor que 5'
+            }
+
+        },
+        watch: { // o watch ele monitora as mudanças de uma determinada variavel.
+            contador(novo, antigo){ // aqui eu sempre falo qual é a propriedade que eu quero monitorar, sendo assim estou monitorando o contador.
+                console.log(antigo, novo);
+                setTimeout(() => { // arrow function nessa parte, sendo assim depois de 2 segundos o contador vai zerar.
+                    // aqui dentro é o local a onde se precisar posso fazer uma chamada no servidor para pegar algum valor, fazer uma requisição para uma cidade para popular um combo box apenas um exemplo.
+                    this.contador = 0
+                }, 5000)
+            }
+        },
+        methods: {
+            aumentar() {
+                this.contador++
+            },
+            diminuir(){
+                this.contador--
+            },
+//            resultado(){ // Quando eu crio uma função resultado eu não posso haver duplicação
+//                console.log("Está chamando esse metodo") 
+//                return this.contador >= 5 ? 'Maior  ou igual a 5' : 'Menor que 5'
+//            }
+        }
+    })
+    // A explicação é que o Vue sabe quando uma propriedade computada precisa ser chamada pq ele monitora todas as variáveis que são usadas na propriedade computada, mas esse comportamento não ocorre com um método, por isso o método é chamado sempre.
+</script>
