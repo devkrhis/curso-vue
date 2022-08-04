@@ -1,0 +1,55 @@
+<!-- Aula 40 Estilo Dinâmico e Classe CSS #02 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<style>
+    #app {
+        display: flex;
+        justify-content: space-around;
+
+    }
+    .demo {
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+    }
+
+    .c1 {
+        background-color: red;
+
+    }
+
+    .c2 {
+        background-color: green;
+    }
+
+    .c3 {
+        background-color: blue;
+    }
+</style>
+
+<div id="app">
+    <!-- para aplicar a class diretamente dentro dessa div podemos realizar assim -> :class="{nomeDaClasse, valorVerdadeiroOuFalso}" dessa forma conseguimos aplicar diretamente, o vue entende dessa forma.
+    Se eu tivesse no lugar de .c1 fosse .cor-1 eu teria que colocar dessa forma :class ="{"cor-1": aplicarC1}" não posso ferir os nomes dos indentificadores do javascript, sendo assim dá certo 
+    Posso aplicar várias classes também dessa forma: <div class="demo" :class="{c1: aplicarC1, c2: !aplicarC1}" 
+    mas dependendo da quantidade é bom utilizar um propriedade computada-->
+    <div class="demo" :class="estilo01" 
+            @click="aplicarC1 = !aplicarC1"></div> <!-- Dessa forma sempre que eu clicar ele vai ficar alternando o valor--> 
+    <div class="demo"></div>
+    <div class="demo"></div>
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            aplicarC1: false
+        },
+        computed: {
+            estilo01(){ // Dessa forma fica mais enxuto e basta apenas chamar ela no v-bind:class="estilo01" como está ali em cima, lembrando que :class="estilo01" é a mesma coisa sem o v-bind.
+                return {
+                    c1: this.aplicarC1,
+                    c2: !this.aplicarC1,
+                }
+            }
+        }
+    })
+</script>
