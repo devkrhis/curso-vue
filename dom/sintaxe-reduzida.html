@@ -1,0 +1,17 @@
+<!-- Aula 16 Entendendo VueJS Templates  -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p> {{ titulo }} </p>
+    <button @click="somar"> Somar 1</button> <!-- v-on:click pode ser substituido por @click-->
+    <input type="text" :value="contador"> <!-- v-bind:value pode ser substituido por :value -->
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Usando VUEJS!'
+        }
+    })
+</script>
