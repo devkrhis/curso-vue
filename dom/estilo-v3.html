@@ -1,0 +1,67 @@
+<!-- Aula 41 Estilo Dinâmico e Classe CSS #03 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<style>
+    .caixas {
+        display: flex;
+        justify-content: space-around;
+
+    }
+    .demo {
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+    }
+
+    .c1 {
+        background-color: red;
+
+    }
+
+    .c2 {
+        background-color: green;
+    }
+
+    .c3 {
+        background-color: blue;
+    }
+
+    .girar {
+        transform: rotate(45deg);
+    }
+</style>
+
+<div id="app">
+    <!-- para aplicar a class diretamente dentro dessa div podemos realizar assim -> :class="{nomeDaClasse, valorVerdadeiroOuFalso}" dessa forma conseguimos aplicar diretamente, o vue entende dessa forma.
+    Se eu tivesse no lugar de .c1 fosse .cor-1 eu teria que colocar dessa forma :class ="{"cor-1": aplicarC1}" não posso ferir os nomes dos indentificadores do javascript, sendo assim dá certo 
+    Posso aplicar várias classes também dessa forma: <div class="demo" :class="{c1: aplicarC1, c2: !aplicarC1}" 
+    mas dependendo da quantidade é bom utilizar um propriedade computada-->
+    <div class="caixas">
+        <div class="demo" :class="estilo01" 
+        @click="aplicarC1 = !aplicarC1"></div> <!-- Dessa forma sempre que eu clicar ele vai ficar alternando o valor--> 
+        <div class="demo"></div>
+        <div class="demo" :class="[classeCSS, {'girar': aplicarGirar}]"></div> <!-- Aplicando a classeCSS dentro eu consigo mudar a cor do mesmo, quando está [sintaxe de array sendo assim posso colocar várias classes, eu recomendo utilizar propriedade computada, acho que o codigo fica mais limpo] 
+        pode fazer um objeto também sendo assim defino no data e coloco dessa forma [{'girar': aplicarGirar}]-->
+    </div>
+    <hr>
+    <input type="text" v-model="classeCSS"> <!-- como aqui está com o v-model ele vai trocar a cor da classe caso eu troco na tela porque ele faz a alteração, o vue entende que pode ser trocado com o v-model, o v-model é como se fosse um v-bind e um v-on juntos.-->
+
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            aplicarC1: false,
+            classeCSS: 'c1',
+            aplicarGirar: false
+        },
+        computed: {
+            estilo01(){ // Dessa forma fica mais enxuto e basta apenas chamar ela no v-bind:class="estilo01" como está ali em cima, lembrando que :class="estilo01" é a mesma coisa sem o v-bind.
+                return {
+                    c1: this.aplicarC1,
+                    c2: !this.aplicarC1,
+                }
+            }
+        }
+    })
+</script>
