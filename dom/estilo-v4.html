@@ -1,0 +1,66 @@
+<!-- Aula 42 Estilo Dinâmico Sem Classe CSS #03 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<style>
+    .caixas {
+        display: flex;
+        justify-content: space-around;
+
+    }
+    .demo {
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+    }
+
+    .c1 {
+        background-color: red;
+
+    }
+
+    .c2 {
+        background-color: green;
+    }
+
+    .c3 {
+        background-color: blue;
+    }
+
+    .girar {
+        transform: rotate(45deg);
+    }
+</style>
+
+<div id="app">
+    <!-- para aplicar a class diretamente dentro dessa div podemos realizar assim -> :class="{nomeDaClasse, valorVerdadeiroOuFalso}" dessa forma conseguimos aplicar diretamente, o vue entende dessa forma.
+    Se eu tivesse no lugar de .c1 fosse .cor-1 eu teria que colocar dessa forma :class ="{"cor-1": aplicarC1}" não posso ferir os nomes dos indentificadores do javascript, sendo assim dá certo 
+    Posso aplicar várias classes também dessa forma: <div class="demo" :class="{c1: aplicarC1, c2: !aplicarC1}" 
+    mas dependendo da quantidade é bom utilizar um propriedade computada-->
+    <div class="caixas">
+        <div class="demo" :style="{backgroundColor: cor}"></div> <!-- É possível utilizar backgroundColor assim, que ele entende não precisa passar {'background-color': cor} mas se passar não está errado também.-->
+        <div class="demo" :style="[meuEstilo, {height: altura}]"></div>
+        <div class="demo"></div>
+    </div>
+    <hr>
+    <input type="text" v-model="cor"> <!-- como aqui está com o v-model ele vai trocar a cor da classe caso eu troco na tela porque ele faz a alteração, o vue entende que pode ser trocado com o v-model, o v-model é como se fosse um v-bind e um v-on juntos.-->
+    <input type="text" v-model="largura">
+
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            cor: 'red',
+            largura: 100,
+            altura: 20
+        },
+        computed: {
+            meuEstilo(){
+                return {
+                    backgroundColor: this.cor,
+                    width: this.largura + 'px'
+                }
+            }
+        }
+    })
+</script>
