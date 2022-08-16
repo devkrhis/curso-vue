@@ -1,0 +1,29 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p> {{ titulo }} </p>
+    <p> {{ titulo }}</p>
+    <hr>
+    <h1> {{ Krhislindao }}</h1>
+    <!-- <h2> {{ Separando Palavras}}</h2>  NÃO PODE FAZER ISTO-->
+    <h3> {{ conca + tenando}}</h3>
+    <hr>
+    <h4> {{ concatenando + "-" + concatenando2}}</h4>
+</div>
+
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+            titulo: 'Aqui e o que vai mexer no titulo',
+            Krhislindao:' EU acho que essa é a primeira palavra',    
+        //    Separando: 'Separei a palavra', --> Não adianta vai dar erro no navegador
+        //    Palavras: 'Segundo palavra separada' --> Não adianta vai dar erro no navegador  
+            conca: 'Aqui eu estou tentando concatenar',
+            tenando: 'Concatenou',
+            concatenando: 'Krhistopher',
+            concatenando2: 'Kauling Novak'
+        }
+    })
+
+</script>
