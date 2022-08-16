@@ -1,0 +1,37 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p> {{ titulo }}</p>
+    <p> {{ saudacao() }}</p>
+    <p> {{ saudacaoNoturna() }}</p>
+    <p> {{ saudacaoDiurna() }}</p>
+    <p> {{ composto }}</p> <!-- Aqui vai aparecer na tela function native code -->
+    <p> {{ numerico()}}</p>
+</div>
+
+<script>
+    new Vue({
+        el: "#app",
+        data: {
+            titulo: "teste"
+        },
+        methods: {
+            saudacao(){
+                return 'Hello World'
+            },
+            saudacaoNoturna: function(){
+                return 'Good Night'
+            },
+            saudacaoDiurna(){
+                return 'Good Dia'
+            },
+            composto: function(){
+                return "Estás suspensa, as mãos cruzadas devagar, E sorris, calada. És célebre como a tal Torre de Pisa, O teu sorriso passa por ironia - KURT TUCHOLSKY" + "  ----  " +
+                "Frases que lhe saíam fáceis e incolores, mas que em mim se cravavam rápidas e agudas, para sempre. - Clarice Lispector"
+            },
+            numerico(){
+                return 'TENHO ' + 24 + ' ANOS ' + 'e você? ' + (2022 - 1981)  
+            }
+        }
+    })
+</script>
