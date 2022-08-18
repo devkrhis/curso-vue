@@ -1,0 +1,44 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p v-once> {{ titulo }}</p>
+    <p> {{ retornoAlterandoElementos()}}</p>
+    <p> {{ muda }}</p>
+    <p v-once> {{ nmuda }}</p>
+    <p> {{ testandoOutraFunction()}}</p>
+    <hr>
+    <p> <h1 v-once>{{ nome }}</h1> {{ sobrenome }} {{ nomeSobrenomeFrase() }}</p>
+
+</div>
+
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+            titulo: "Hello World",
+            muda: "Sou muda",
+            nmuda: "Não sou muda",
+            nome: "krhistopher",
+            sobrenome: "Kauling"
+        },
+        methods: ({
+            retornoAlterandoElementos(){
+                this.titulo = 'Mudei para Hello!!'
+                return this.titulo
+
+            },
+            testandoOutraFunction(){
+                this.muda = 'Não sou mais muda'
+                this.nmuda = 'Não sou mais muda'
+            },
+            nomeSobrenomeFrase(){
+                this.nome = 'Ze Pilintra',
+                this.sobrenome = 'Tiburcio',
+                frase = "Alemão ligeiro"
+                return frase
+            }
+
+
+        })
+    })
+    </script>

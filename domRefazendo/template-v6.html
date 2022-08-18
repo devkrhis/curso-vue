@@ -1,0 +1,22 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p> {{ texto }}</p>
+    <p v-html='linkHtml'></p>
+    <p v-html="referenciandoOutro + '<br>' + outroSite + '<br>' + linkHtml"></p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            texto: 'Olá que tal?',
+            linkHtml: '<a href="https://cursos.alura.com.br/forum/topico-props-data-computed-e-method-quando-usar-165342"> Curso Alura</a>',
+            referenciandoOutro: '<a href="https://br.vuejs.org/v2/guide/index.html"> Documentação VueJS</a>',
+            outroSite: '<a href="https://www.udemy.com/course/vue-js-completo/learn/lecture/12629280#overview"> Udemy</a>'
+        },
+        methods: ({
+
+        })
+    })
+</script>

@@ -7,6 +7,9 @@
     <p> {{ saudacaoDiurna() }}</p>
     <p> {{ composto }}</p> <!-- Aqui vai aparecer na tela function native code -->
     <p> {{ numerico()}}</p>
+    <hr>
+    <p id="retorno"></p>
+    {{juntandoFunction()}}
 </div>
 
 <script>
@@ -15,15 +18,27 @@
         data: {
             titulo: "teste"
         },
+        computed:{
+            teste(){
+                return 1
+            }
+        },
         methods: {
-            saudacao(){
-                return 'Hello World'
+            juntandoFunction(){
+               // return this.saudacao() + this.saudacaoNoturna(saudacaoNoturna1) + this.saudacaoDiurna(saudacaoDiurna1)
+                return this.allValue(1,2,3)
             },
-            saudacaoNoturna: function(){
-                return 'Good Night'
+            allValue (primarValue, secondValue, thirdValue){
+                return primarValue + secondValue + thirdValue
             },
-            saudacaoDiurna(){
-                return 'Good Dia'
+            saudacao(saudacao1){
+                return saudacao1;
+            },
+            saudacaoNoturna: function(saudacaoNoturna1){
+                return saudacaoNoturna1;
+            },
+            saudacaoDiurna(saudacaoDiurna1){
+                return saudacaoDiurna1
             },
             composto: function(){
                 return "Estás suspensa, as mãos cruzadas devagar, E sorris, calada. És célebre como a tal Torre de Pisa, O teu sorriso passa por ironia - KURT TUCHOLSKY" + "  ----  " +
@@ -32,6 +47,9 @@
             numerico(){
                 return 'TENHO ' + 24 + ' ANOS ' + 'e você? ' + (2022 - 1981)  
             }
+            
         }
     })
 </script>
+
+<style></style>

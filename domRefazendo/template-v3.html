@@ -1,0 +1,37 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p> {{ titulo }}</p>
+    <p> {{ retornaErro()}}</p>
+    <p> {{ retornaData()}}</p>
+    <p> {{ retornaFunction()}}</p>
+    <p> {{ retornoDoRetorno()}} </p>
+
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: 'Hello World',
+            dia: 22,
+            mes: 01,
+            ano: 1998
+        },
+        methods: {
+            retornaErro(){
+                return "Leia de traz pra frente: --> "
+            },
+            retornaData(){
+                return this.dia + '/' + this.mes + '/' + this.ano;
+            },
+            retornaFunction(){
+                return this.retornaErro() + this.retornaData()
+            },
+            retornoDoRetorno(){
+                return this.retornaFunction()
+            }
+
+        }
+    })
+</script>

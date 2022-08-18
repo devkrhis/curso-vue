@@ -1,0 +1,42 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <h1> Bem vindo </h1>
+    <a :href="phantaminum"> <b> <h2> Phantaminum </h2> </b> </a>
+    <p> {{titulo}}</p>
+    <a v-bind:href="link"> Fandom Bam</a>
+    <a :href="urekmazino"> Urek Mazino</a>
+    <hr>
+    <hr>
+    <p> {{dadosGiratorio()}}</p>
+    <p> <a href="https://towerofgod.fandom.com/pt-br/wiki/Arie_Hon"> {{linkRetornavel()}}</p> </a>
+    <a v-bind:href="lindaoDoPai"> Clique e Adivinhe</a>
+    <a danca-bind:href="urekmazino"> danca </a>
+
+
+
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            titulo: "Hello World",
+            link: "https://towerofgod.fandom.com/pt-br/wiki/Vig%C3%A9simo_Quinto_Baam",
+            phantaminum: 'https://towerofgod.fandom.com/pt-br/wiki/Phantaminum',
+            urekmazino: 'https://towerofgod.fandom.com/pt-br/wiki/Urek_Mazino',
+            dados: "Girando? SIM",
+            linkDoPersonagemArie: 'https://towerofgod.fandom.com/pt-br/wiki/Arie_Hon',
+            lindaoDoPai: 'https://www.youtube.com/watch?v=OiXYC-r4NO0'
+        },
+        methods: {
+            dadosGiratorio(){
+                return this.dados
+            },
+            linkRetornavel(){
+                return this.linkDoPersonagemArie
+            }
+
+        }
+    })
+</script>
