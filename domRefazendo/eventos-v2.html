@@ -1,0 +1,67 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="eventos">
+    <p v-on:mousemove="posicaoMouse"> {{ x }} {{ y }}</p>
+    <p v-on:keyup.space="espaco">Quantas vezes clicou no espaço: {{ contador }} </p>
+    <input type="number" v-on:keyup.space="espaco" v-bind:value="contador"> 
+    <p v-on:click="mouseclick"> Quantos clickes você deu na tela? {{ clickMagico}}</p>
+    <button v-on:click="resetarclick"> Zerador de click</button>
+    <button v-on:click="resetarEspaco"> Zerador de espaço</button>
+    <button v-on:click="resetarPosicaoMouse"> Zerador do mouse</button>
+    <button v-on:click="resetao"> Reseta Tudo</button>
+
+</div>
+
+<script>
+    new Vue({
+        el: '#eventos',
+        data: {
+            x: 0,
+            y: 0,
+            contador: 0,
+            clickMagico: 0,
+            zerador: 0,
+            linkMagico: 'https://static1.purebreak.com.br/articles/4/24/20/4/@/122214-no-oscar-2016-parece-que-o-jogo-virou-p-diapo-1.jpg'
+        },
+        methods: ({
+            posicaoMouse(event){
+                this.x = event.clientX
+                this.y = event.clientY
+            },
+            espaco(espace){
+                console.log(espace)
+                this.contador++
+                alert(`Você clicou ${this.contador} vezes`)
+            },
+            mouseclick(){
+                this.clickMagico++
+                if(this.clickMagico == 10){
+                    alert(`Cole no seu navegador:\n ${this.linkMagico}`)
+                } else if (this.clickMagico == 15) {
+                    alert('Lindão do PAI!!')
+                }
+            },
+            resetarclick(){
+                this.clickMagico = 0
+            },
+            resetarEspaco(){
+                this.contador = 0
+
+            },
+            resetarPosicaoMouse(){
+                this.x = 0
+                this.y = 0
+
+            },
+            resetao(){
+                console.log('passei aqui')
+                this.resetarclick()
+                this.resetarEspaco()
+                this.resetarPosicaoMouse()
+                this.zerador++
+                alert(`ZEREMO TUDO ${this.zerador} VEZES `)
+            }
+
+        })
+    })
+</script>
