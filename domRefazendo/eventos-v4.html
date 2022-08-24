@@ -1,0 +1,44 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p @mousemove="pegandoPosicaoDoMouse"> {{ x }} {{ y }} </p>
+    <p @mousemove="pegandoPosicaoDoMouse"> {{ screeny }} {{ screenx }}</p>
+    <p @mousemove.prevents=""> {{ x }} {{ y }}</p>
+    <form>
+        <input type="submit" value="Olá" @click.prevent>
+    </form>
+
+   
+    <button @click="acionandoAlert"> Clique aqui e ira aparecer um alert </button>
+    <p v-html="urekMazino"> </p>
+
+
+</div>
+
+<script>
+    new Vue ({
+        el: '#app',
+        data: ({
+            x: 0,
+            y: 0,
+            screeny: 0,
+            screenx: 0,
+            urekMazino: '<a href="https://towerofgod.fandom.com/wiki/Urek_Mazino"> Urek Mazino</a>' 
+
+        }),
+        methods: ({
+            pegandoPosicaoDoMouse(event){
+                console.log(event)
+                this.x = event.clientX
+                this.y = event.clientY
+                this.screeny = event.screenY
+                this.screenx = event.screenX
+            },
+            acionandoAlert(){
+                alert("Olá sou seu amigo Dolinho ;)")
+            },
+
+
+        })
+    })
+</script>
