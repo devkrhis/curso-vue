@@ -1,0 +1,47 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="calculadora">
+    <p>Resultado:  {{ valor }} !!! {{ valorRedundante }}</p>
+    <p>Frase: {{ resultado }}</p>
+    
+    <button type="button" @click="aumentandoValor">Aumenta 1</button>
+    <button type="button" @click="diminuindoValor">Diminui 1</button>
+    <button type="button" @click="aumentandoValorRedundante">Aumenta 10</button>
+    <button type="button" @click="diminuindoValorRedundante">Diminui 10</button>
+</div>
+
+<script>
+    new Vue ({
+        el: '#calculadora',
+        data: ({
+            valor: 0,
+            valorRedundante: 0,
+        }),
+        methods: ({
+            aumentandoValor(){
+                console.log('passei aqui')
+                this.valor++
+            },
+            diminuindoValor(){
+                this.valor--
+            },
+            aumentandoValorRedundante(){
+                this.valorRedundante = this.valorRedundante + 10
+            },
+            diminuindoValorRedundante(){
+                this.valorRedundante = this.valorRedundante - 10
+            },
+        }),
+        computed: ({
+            resultado(){
+                console.log('Computed aqui')
+                if(this.valor >= 6){
+                    return this.fraseComputed = 'Parabéns você conseguiu 6 reais ou mais' 
+                }
+                else {
+                    return this.fraseComputed = 'Pobre, pois seu saldo é menor que 6 reais.'
+                }
+            }
+        })
+    })
+</script>

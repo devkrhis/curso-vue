@@ -1,0 +1,38 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p> {{ valorOne }} //// {{ valorTwo }}</p>
+    <p> {{ resultado }}</p>
+    <button v-on:click="aumenta">Aumenta 1</button>
+    <button v-on:click="diminui">Diminui 1</button>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: ({
+            valorOne: 0,
+            valorTwo: 0,
+        }),
+        methods: ({
+            aumenta(){
+                console.log("Chamei o valor One")
+                this.valorOne++
+            },
+            diminui(){
+                console.log("Chamei o valor two")
+                this.valorTwo--
+            }
+        }),
+        computed: ({
+            resultado(){
+                console.log('chamando esse metodo')
+                if(this.valorOne > 10){
+                    return "O texto é maior que 10!" 
+                } else {
+                    return "O texto é menor que o valor 10!"
+                }
+            }
+        })
+    })
+</script>

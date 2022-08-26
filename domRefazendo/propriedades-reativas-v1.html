@@ -1,0 +1,26 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p> {{ texto }} </p>
+    <input type="text" v-model="texto">
+    <hr>
+
+    <p> {{ textoAlternativo }}</p>
+    <input type="text" v-on:keyup.enter="clickMagico">
+    <p> {{ textoAlternativo }}</p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: ({
+            texto: 'Olá universo',
+            textoAlternativo: 'Mudando de texto'
+        }),
+        methods: ({
+            clickMagico(event){
+                this.textoAlternativo = event.target.value
+            }
+        })
+    })
+</script>
