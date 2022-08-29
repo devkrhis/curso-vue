@@ -1,0 +1,43 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p>Numero: {{ valor1 }} ///////// {{ valor2}}</p>
+    <p>Resultado Final: {{ result }}</p>
+    <button @click="aumenta"> Aumenta 1</button>
+    <button @click="diminui"> Diminui 1</button>
+</div>
+
+<script>
+    new Vue ({
+        el: '#app',
+        data: ({
+            valor1: 0,
+            valor2: 0,
+        }),
+        methods: ({
+            aumenta(){
+                this.valor1++
+            },
+            diminui(){
+                this.valor1--
+            }
+        }),
+        computed: ({
+            result(){
+                if(this.valor1 > 10){
+                    return "O valor é maior que 10"
+                } else {
+                    return "O valor é menor que 10"
+                }
+            }
+        }),
+        watch:{
+            valor1(novo, antigo){
+                console.log(novo, antigo)
+                setTimeout(() => {
+                    this.valor1 = 0
+                }, 2000 )
+            }
+        }
+    })
+</script>
