@@ -1,0 +1,74 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<style>
+
+#app{
+    display: flex;
+    justify-content: space-around;
+}
+
+.demo{
+    height: 100px;
+    width: 100px;
+    background-color: gray;
+    margin-top: 20px;
+}
+
+.girar{
+    background-color: black;
+    transform: rotate(45deg);
+}
+.normalizar{ 
+    background-color: pink;
+    transform: rotate(0deg);
+}
+.boxmagico {
+    background-color: rebeccapurple;
+    box-shadow: 10px 5px 5px black;
+    transform: rotate(75deg);
+}
+.trocandoTudo {
+    background-color: yellow;
+    box-shadow: 0 0 1em blue;
+    transform: rotate(35deg);
+}
+
+
+</style>
+
+<div id="app">
+    <div class="demo" :class="girarMudarCor" 
+        @click="aplicarGirar = !aplicarGirar"></div>
+
+    <div class="demo" :class="aplicandoFiltro" 
+        @click="aplicarBoxMagico = !aplicarBoxMagico"></div>
+
+    <div class="demo" :class="aplicandoFiltro"></div>
+</div>
+
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+            aplicarGirar: true,
+            aplicarBoxMagico: false,
+        },
+        computed: ({
+            girarMudarCor(){
+                return {
+                    girar: this.aplicarGirar,
+                    normalizar: !this.aplicarGirar
+                }
+            },
+            aplicandoFiltro(){
+                return {
+                    boxmagico: this.aplicarBoxMagico,
+                    trocandoTudo: !this.aplicarBoxMagico,
+
+                }
+
+            }
+
+        })
+    })
+</script>
