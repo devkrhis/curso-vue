@@ -1,0 +1,55 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<style>
+    #app{
+        display: flex;
+        justify-content: space-around;
+        
+    }
+    .beta{
+        width: 150px;
+        height: 200px;
+        background-color: grey;
+    }
+
+    .cred{
+        background-color: red;
+    }
+    .cblue{
+        background-color: blue;
+    }
+    .cgreen{
+        background-color: green;
+    }
+    .girar {
+        transform: rotate(45deg);
+    }
+
+</style>
+
+<div id="app">
+    <div class="beta" :class="changeColor" 
+        @click="cgreen = !cgreen"></div>
+    <div class="beta" :class="[changeColorCss, 'girar']"></div>  <!-- Posso aplicar várias classes com array.-->
+    <div class="beta"></div>
+    <input type="text" v-model='changeColorCss'>
+</div>
+
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            cgreen: true,
+            changeColorCss: 'cred'
+        },
+        computed: ({
+            changeColor(){
+                return {
+                    cgreen: this.cgreen,
+                    cred: !this.cgreen
+                }
+            }
+        })
+    })
+</script>

@@ -1,0 +1,66 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<style>
+    #app{
+        display: flex;
+        justify-content: space-around;
+    }
+    .demo{
+        width: 100px;
+        height: 100px;
+        background-color: gold;
+    }
+
+    .applyColorRed{
+        background-color: red;
+        transform: rotate(45deg);
+    }
+    .applyColorGreen{ 
+        background-color: green;
+        transform: rotate(45deg);
+    }
+    .sombra {
+        box-shadow: 10px 5px 5px purple;
+    }
+
+</style>
+
+
+<div id="app">
+    <div class="demo" :class="applyStyle" 
+        @click="applyColorRed = !applyColorRed"></div>
+
+    <div class="demo" :class="changeFormat"></div>
+
+    <div class="demo" :class="[textAplication, changeFormat]"></div>
+
+    <input type="text" v-model='textAplication'>
+
+</div>
+<hr>
+
+
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+        applyColorRed: false,
+        textAplication: 'applyColorRed',
+        sombra: true,
+
+        },
+        computed: ({
+            applyStyle (){
+                return {
+                    applyColorRed: this.applyColorRed
+                }
+            },
+            changeFormat (){
+                return {
+                    sombra: this.sombra
+                }
+            }
+        })
+    })
+
+</script>
