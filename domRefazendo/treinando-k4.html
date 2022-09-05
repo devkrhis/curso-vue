@@ -1,0 +1,59 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<style>
+    .demo{
+        width: 150px;
+        height: 100px;
+        background-color: gray;
+    }
+    .cred{
+        background-color: red;
+    }
+    .cblue{
+        background-color: blue;
+    }
+</style>
+
+
+<div id="app">
+    <button @click="injectColor"> Inject Color</button>
+    <div class="demo" :class="classe1"> {{ cor }}</div>
+    <hr>
+
+    <button @click="increase"> Increase </button>
+    <button @click="decrease"> Decrease </button>
+    <p> {{ contador }}</p>
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            contador: 0,
+            cor: '',
+            classe1: 'cblue',
+
+        },
+        methods: ({
+            increase(){
+                this.contador++
+            },
+            decrease(){
+                this.contador--
+            },
+            injectColor(){
+                setInterval(() => {
+                    if(this.classe1 == 'cblue'){
+                        return this.classe1 = 'cred'
+                    } else {
+                        return this.classe1 = 'cblue'
+                    }
+                }, 2000)
+            }
+        }),
+        watch: {
+
+        }
+
+    })
+</script>

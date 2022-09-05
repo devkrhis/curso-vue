@@ -1,0 +1,61 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<style>
+
+    .box{
+        display: flex;
+        justify-content: space-around;
+    }
+    .demo{
+        width: 100px;
+        height: 100px;
+        background-color: gray;
+    }
+    .colorRed{
+        background-color: red;
+    }
+    .colorGreen{
+        background-color: green;
+    }
+
+</style>
+
+<div id="app">
+    <div class="box">
+        <div class="demo" :style="{backgroundColor: cor}"></div>
+        <div class="demo" :style="[applycationCollor]"></div>
+        <div class="demo" :style=""></div>        
+    </div>
+
+
+    <input type="text" v-model="cor">
+    <input type="text" v-model="largura">
+    <button @click="barraDeProgresso"> iniciar</button>
+</div>
+
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+            cor: 'red',
+            largura: 100
+        },
+        methods: {
+            barraDeProgresso(){
+                setInterval(() => {
+                        return this.largura = '200'
+                        
+                }, 500)
+            }
+
+        },
+        computed: {
+            applycationCollor(){
+                return {
+                    backgroundColor: this.cor,
+                    width: this.largura + 'px'
+                }
+            }
+        }
+    })
+</script>
