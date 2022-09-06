@@ -1,0 +1,36 @@
+<meta charset="UTF-8">
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p v-if="pauloDecision"> Aqui é o {{ nome }} </p>
+    <p v-else> Sangue do meu sangue </p>
+<hr>
+    <button @click="pauloDecision = !pauloDecision"> 
+        {{ pauloDecision ? 'sair' : 'entrar' }}</button>
+<hr>
+
+<p v-if="aperteME"> boca de xaxixo {{ pessoa }} </p>
+<p v-else> {{ pessoa }} é o que? {{ gotoso }}</p>
+<button @click="aperteME = !aperteME">
+    {{ aperteME ? 'EOQUE' : 'bocaDeXaxixo' }}
+</button>
+
+    
+    
+</div>
+
+
+
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+            nome: 'Paulo',
+            pauloDecision: true,
+            pessoa: 'Luan',
+            gotoso: 'My Baby Delicius',
+            aperteME: false
+        }
+    })
+</script>
