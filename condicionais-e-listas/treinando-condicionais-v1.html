@@ -1,0 +1,21 @@
+<meta charset="UTF-8">
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p v-if="login"> Você deseja entrar? {{ nome }}</p>
+    <p v-else> Você deseja sair? {{ nome }}</p>
+    <button type="button" @click="login = !login"> 
+        {{ login ? 'Entrar' : 'Sair' }} 
+    </button>
+</div>
+
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+            nome: 'Krhistopher',
+            login: false
+        }
+    })
+</script>

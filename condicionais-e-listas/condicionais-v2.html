@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p v-if="login"> Olá meu nome é {{ nome }}</p>
+    <p v-else-if="validaCodjuvante"> Olá eu sou o {{ coadjuvante }} beira mar</p>
+    <p v-else-if="bobMarley"> Olá eu acabei de virar o Bob Marley</p>
+    <p v-else> Estou fora do discurso do {{ nome }}</p>
+    <button type="button" @click="login = !login">
+        {{ login ? 'fora' : 'dentro' }}
+            </button>
+    <input type="checkbox" v-model="validaCodjuvante"> Virando Codjuvante
+    <input type="checkbox" v-model="bobMarley"> Check para virar o Tio BOB
+</div>
+
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+            login: false,
+            nome: 'Paulo',
+            coadjuvante: 'RED',
+            validaCodjuvante: false,
+            bobMarley: false
+        }
+    })
+</script>
