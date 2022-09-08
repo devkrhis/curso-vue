@@ -1,0 +1,25 @@
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <template v-if="regrasAtivadas">
+        <p> Qual é seu jogo preferido: {{ game }} </p>
+        <p> Qual seu status dentro do jogo: {{ cargo }}</p>
+    </template>
+    <p v-else-if="anonimo"> Você está como Anonimo </p>
+    <p v-else> Você está fora do sistema </p>
+    <button type="button" @click="regrasAtivadas = !regrasAtivadas"> {{ regrasAtivadas ? 'Não ver Status' : 'Ver Status' }}</button>
+    <input type="checkbox" v-model="anonimo"> Deseja virar anonimo?
+</div>
+
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+            game: 'CS:GO',
+            cargo: 'Administrador',
+            regrasAtivadas: false,
+            anonimo: false
+        }
+    })
+</script>
