@@ -1,0 +1,49 @@
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="treinandoListas">
+    <template v-if="acess">
+        <p> Parabéns por conseguir acessar mestre dos Magos {{ name }}</p>
+        <hr>
+        <hr>
+        <p v-show="acess"> Aqui é a dancinha do farão que você consegue ver inspecionando o elemento</p>
+    </template>
+    <p v-else-if="checkAcess"> Parabéns pela curiosidade </p>
+    <p v-else> Você está fora do sistema!</p>
+    <button type="button" @click="acess = !acess"> {{ acess ? 'Sair' : 'Entrar'}}</button>
+    <input type="checkbox" v-model="checkAcess"> Tem curiosidade? 
+    <hr>
+    <hr>
+    <p> Mostrando os Arrays</p>
+    <template v-if="acessArray">
+        <ul>
+            <li v-for="list in listSecret"> {{ list }} </li>
+            <hr>
+            <li v-for="(secondL, indice) in secondList"> {{secondL}} {{indice + 1}} </li>
+        </ul>
+    </template>
+    <button type="button" @click="acessArray = !acessArray"> Clique para ver a lista secreta!</button>
+
+
+</div>
+
+<script>
+    new Vue({
+        el: '#treinandoListas',
+        data: {
+            name: 'Calvo',
+            acess: false,
+            checkAcess: false,
+            acessArray: false,
+            listSecret: ['Fluxo', 'Paulinho o Loko', 'Red Beira Mar', 'O Plano'],
+            secondList: ['Positivo', 'Negativo', 'Andando', 'Parando', 'Correndo', 'Viajando'],
+            listObjects: [ // lista de objetos só para lembrar
+                {Nome: 'Krhistopher', Idade: 26, Sexo: 'Masculino'},
+                {Trabalho: 'Desenvolvedor', Sonho: 'Virar Dev', Meta: '25 Anos'},
+                {Pais: 'Inglaterra ou Portugual', Moeda: 'Euro ou Dolar', Quando: ' Com no maximo 30 anos!'}
+            ]
+            
+
+        }
+    })
+</script>

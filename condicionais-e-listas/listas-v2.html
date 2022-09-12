@@ -1,0 +1,80 @@
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+
+
+<style>
+    #testeClasse{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 2%;
+        margin-bottom: 3%;
+    }
+
+    .demo{
+        height: 150px;
+        width: 150px;
+        background-color: gray;
+    }
+    .girar{
+        transform: rotate(45deg);
+        box-shadow: 10px 5px 5px black;
+        background: yellow;
+    }
+    .reGirar{
+        box-shadow: 10px 5px 5px black;
+        background: rebeccapurple;
+    }
+
+</style>
+
+<div id="listas2">
+    <template v-if="logar">
+        <p> Você está logado como {{ nome }}</p>
+        <p> Parabéns você é um administrador do SISTEMA e consegue ver a lista: </p>
+
+        <div id="testeClasse">
+            <div class="demo" :class="efectGirar"></div>
+            <div class="demo" :class="efectGirar"></div>
+            <div class="demo" :class="efectGirar"></div>
+        </div>
+        <hr>
+        <button type="button" @click="applyEfect"> Clique para Girar</button>
+        <hr>
+        <ul>
+            <li v-for="(programas, i) in programs"> {{ i + 1}}ª {{ programas }}</li>
+        </ul>
+
+    </template>
+    <p v-else-if="deslogar"> Você não está logado!</p>
+    <p v-else> Você está fora do sistema! </p>
+    <button type="button" @click="logar = !logar"> {{ logar ? 'Sair' : 'Entrar' }}</button>
+    <input type="checkbox" v-model="deslogar"> Verificando Login!
+
+
+
+</div>
+
+<script>
+    new Vue({
+        el: '#listas2',
+        data: {
+            nome: 'Krhistopher',
+            logar: false,
+            deslogar: false,
+            programs: ['C', 'C++', 'Java', 'Javascript', 'Ruby', 'Cobol', 'Python'],   
+            efectGirar: 'girar'
+        },
+        methods: {
+            applyEfect(){
+                if(this.efectGirar == 'girar'){
+                    return this.efectGirar = 'reGirar'
+                } else {
+                    return this.efectGirar = 'girar'
+                }
+                console.log('Passou aqui')
+                
+            }
+        }
+    })
+</script>
