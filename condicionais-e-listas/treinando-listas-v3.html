@@ -5,6 +5,7 @@
     <template v-for="(estilosM, i) in estilosMusicais">
         <h1> {{ i + 1}}º</h1>
         <h2> {{ estilosM }}</h2>
+        <div v-for="(returnEstilos, chave) in estilosM"> {{ returnEstilos }} --> {{ chave }}</div>
     </template>
 
 </div>

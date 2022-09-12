@@ -1,0 +1,25 @@
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="treinandoListas">
+    <div v-for="savingListValue in ListOfHome">
+        <div v-for="(savingList, chave, indexManager) in savingListValue"> {{ chave }} >> {{ savingList }} + {{ indexManager +1 }}</div>
+    </div>
+
+</div>
+
+<script>
+    new Vue ({
+        el: '#treinandoListas',
+        data: {
+            ListOfHome: [
+                {Name: 'Vase', Time: '34 Years', País: 'USA'},
+                {Name: 'Chair', Time: '99 Years', País: 'Brasil'},
+                {Name: 'Lua', Time: '99 Years', País: 'Brasil'},
+                {Name: 'Sol', Time: '19 Years', País: 'França'},
+                {Name: 'Terra', Time: '09 Years', País: 'Alemanhã'},
+                {Name: 'Borracha', Time: '39 Years', País: 'Google'}
+            ]
+        }
+    })
+</script>
