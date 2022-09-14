@@ -3,7 +3,7 @@
 
 <div id="treinandoListasV5">
     <div v-for="date in ListForMe">
-        <div v-for="datePerson in date" :key="date.person"> {{ datePerson }}</div>
+        <div v-for="datePerson in date" :key="datePerson"> {{ datePerson }}</div>
     </div>
     <button type="button" @click="ListForMe.push('Nome: Amaral o Policial radical', 'Idade: 30 Anos', 'Estado: MT', 'Cidade: Mato Grosso')"> Add Value </button>
 <hr>
