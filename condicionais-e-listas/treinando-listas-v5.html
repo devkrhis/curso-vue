@@ -1,0 +1,26 @@
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="treinandoListasV5">
+    <div v-for="date in ListForMe">
+        <div v-for="datePerson in date" :key="date.person"> {{ datePerson }}</div>
+    </div>
+    <button type="button" @click="ListForMe.push('Nome: Amaral o Policial radical', 'Idade: 30 Anos', 'Estado: MT', 'Cidade: Mato Grosso')"> Add Value </button>
+<hr>
+<hr>
+    <div v-for="n in 10"> {{ n }}</div>
+</div>
+
+<script>
+    new Vue ({
+        el: '#treinandoListasV5',
+        data: {
+            ListForMe: [
+                {Nome: 'Krhistopher', Idade: '24 Anos', Estado: 'PR', Cidade: 'Curitiba'},
+                {Nome: 'Lucas', Idade: '16 Anos', Estado: 'RS', Cidade: 'Cambara Do Sul'},
+                {Nome: 'Luan', Idade: '25 Anos', Estado: 'PR', Cidade: 'Curitiba'},
+                {Nome: 'Julia', Idade: '75 Anos', Estado: 'SP', Cidade: 'Sao Paulo'}
+            ]
+        }
+    })
+</script>

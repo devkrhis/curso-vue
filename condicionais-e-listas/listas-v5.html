@@ -1,0 +1,28 @@
+<meta charset="UTF-8">
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <div v-for="cor in cores"> {{ cor }}</div>
+    <button type="button" @click="cores.push('yellow')">Adicionar valor</button>
+
+
+    <div v-for="pessoas in ListaDePessoas" :key="pessoas.message"> {{ pessoas }}</div>
+    <button type="button" @click="ListaDePessoas.push('Amaral', '15 Anos', '1993')"> Adicionando Valor</button>
+
+</div>
+
+<script>
+    new Vue ({
+        el: '#app',
+        data: {
+            cores: ['Branco', 'Azul', 'Vermelhor'],
+            ListaDePessoas: [
+                {nome: 'Krhistopher', idade: '24 Anos', Ano: 1998},
+                {nome: 'Lucas', idade: '18 Anos', Ano: 2002},
+                {nome: 'José', idade: '14 Anos', Ano: 2012}
+
+            ]
+
+        }
+    })
+</script>
