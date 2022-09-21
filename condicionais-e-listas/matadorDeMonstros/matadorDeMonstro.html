@@ -7,11 +7,11 @@
         <p class="positionPlayers1"> Jogador </p>
         <p class="positionPlayers2"> Monstro </p>
         <div class="lifeStyle1">
-            <div class="lifeStyleFull1" :style="{width}"></div>
+            <div class="lifeStyleFull1" :style="widthHuman"></div>
         </div>
             
         <div class="lifeStyle2">
-            <div class="lifeStyleFull2" :style="{width}"></div>
+            <div class="lifeStyleFull2" :style="widthMonster"></div>
         </div>
 
         <div></div>
@@ -20,8 +20,8 @@
     <div class="buttons">
         <button type="button" @click="attack" class="dimenButton" style="background-Color: rgba(255, 0, 0, 0.966)"> Ataque </button>
         <button type="button" class="dimenButton" @click="specialAttack" style="background-Color: rgb(219, 144, 3)"> Ataque Especial </button>
-        <button type="button" class="dimenButton" style="background-Color: rgba(0, 128, 0, 0.932)"> Curar </button>
-        <button type="button" class="dimenButton" style="background-Color: rgba(128, 128, 128, 0.87)"> Desistir </button>
+        <button type="button" class="dimenButton" @click="heal" style="background-Color: rgba(0, 128, 0, 0.932)"> Curar </button>
+        <button type="button" class="dimenButton" @click="restart" style="background-Color: rgba(128, 128, 128, 0.87)"> Desistir </button>
     </div>
 </div>
 

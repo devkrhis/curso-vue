@@ -1,28 +1,104 @@
 new Vue ({
     el: '#desafio',
     data: {
-        width: '100%',
+        widthHuman: '100%',
+        lifeHuman: 100,
+        widthMonster: '100%',
+        lifeMonster: 100
     },
     methods: {
         attack(){
-            let valor = 100
-            valor -= (Math.floor(Math.random() * 20 )) // monstro
-            console.log(valor)
-            valor -= (Math.floor(Math.random() * 10)) // humano
-            console.log(valor)
-            this.width = `${valor}%`
-            
-            // valueAll = 0;
+            //Aqui eu estou tirando a vida do HUMANO
+            this.lifeHuman -= (Math.floor(Math.random() * 20 )) // monstro
+            console.log(this.lifeHuman)
+            this.widthHuman = {width: this.lifeHuman +"%"}
+
+            if(this.lifeHuman <= 0 ){
+                this.widthHuman = {width: "0%"}
+                alert("O Humano foi derrotado")
+            } else if(this.lifeHuman > 70) {
+                this.widthHuman = {width: this.lifeHuman + "%", backgroundColor: "green"}
+            } else if(this.lifeHuman <= 70 && this.lifeHuman >= 40) {
+                this.widthHuman = {width: this.lifeHuman + "%", backgroundColor: "yellow"}
+            } else {
+                this.widthHuman = {width: this.lifeHuman + "%", backgroundColor: "red"}
+            }
+
+            //Aqui eu estou tirando a vida do MONSTRO
+            this.lifeMonster -= (Math.floor(Math.random() * 10)) // humano
+            console.log(this.lifeMonster)
+            this.widthMonster = {width: this.lifeMonster +"%"}
+
+            if(this.lifeMonster <= 0 ){
+                this.widthMonster = {width: "0%"}
+                alert("O Monstro foi derrotado")
+            } else if(this.lifeMonster > 70) {
+                this.widthMonster = {width: this.lifeMonster + "%", backgroundColor: "green"}
+            } else if(this.lifeMonster <= 70 && this.lifeMonster >= 40) {
+                this.widthMonster = {width: this.lifeMonster + "%", backgroundColor: "yellow"}
+            } else {
+                this.widthMonster = {width: this.lifeMonster + "%", backgroundColor: "red"}
+            }
+
         },
         specialAttack(){
-            console.log(Math.floor(Math.random() * 10)) // monstro
-            console.log(Math.floor(Math.random() * 20 )) // humano
+            //Aqui eu estou tirando a vida do MONSTRO
+            this.lifeMonster -= (Math.floor(Math.random() * 20)) // humano
+            console.log(this.lifeMonster)
+            this.widthMonster = {width: this.lifeMonster +"%"}
+
+            if(this.lifeMonster <= 0 ){
+                this.widthMonster = {width: "0%"}
+            } else if(this.lifeMonster > 70) {
+                this.widthMonster = {width: this.lifeMonster + "%", backgroundColor: "green"}
+            } else if(this.lifeMonster <= 70 && this.lifeMonster >= 40) {
+                this.widthMonster = {width: this.lifeMonster + "%", backgroundColor: "yellow"}
+            } else {
+                this.widthMonster = {width: this.lifeMonster + "%", backgroundColor: "red"}
+            } 
+
+
+            //Aqui eu estou tirando a vida do HUMANO
+            this.lifeHuman -= (Math.floor(Math.random() * 10 )) // monstro
+            console.log(this.lifeHuman)
+            this.widthHuman = {width: this.lifeHuman +"%"}
+
+            if(this.lifeHuman <= 0 ){
+                this.widthHuman = {width: "0%"}
+                alert("O Humano foi derrotado")
+            } else if(this.lifeHuman > 70) {
+                this.widthHuman = {width: this.lifeHuman + "%", backgroundColor: "green"}
+            } else if(this.lifeHuman <= 70 && this.lifeHuman >= 40) {
+                this.widthHuman = {width: this.lifeHuman + "%", backgroundColor: "yellow"}
+            } else {
+                this.widthHuman = {width: this.lifeHuman + "%", backgroundColor: "red"}
+            }
+
         },
         heal(){
-            console.log(Math.floor(Math.random() * 10)) // monstro
-            console.log(Math.floor(Math.random() * 10 )) // humano
+            this.lifeHuman += (Math.floor(Math.random() * 20)) // Recuperando a vida do humano
+            console.log(this.lifeHuman)
+            this.widthHuman = {width: this.lifeHuman + "%"}
+
+            this.lifeMonster += (Math.floor(Math.random() * 10)) // Recuperando a vida do monstro
+            console.log(this.lifeMonster)
+            this.widthMonster = {width: this.lifeMonster + "%"}
+
+            if(this.lifeHuman > 100){
+                this.widthHuman = 100
+                this.lifeHuman = 100
+            }
+            if (this.lifeMonster > 100){
+                this.widthMonster = 100
+                this.lifeMonster = 100
+            }
+
         },
         restart(){
+            this.widthMonster = 100
+            this.lifeMonster = 100
+            this.widthHuman = 100
+            this.lifeHuman = 100
 
         }
     }
