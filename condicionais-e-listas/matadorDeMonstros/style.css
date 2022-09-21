@@ -1,0 +1,66 @@
+.players{
+    width: 95%;
+    height: 20%;
+    margin-left: 3%;
+    margin-top: 5%;
+    border: 1px solid;
+    box-shadow: 5px 15px 8px 0px #888888;
+}
+
+.positionPlayers1{
+    display: inline-block;
+    margin-left: 17%;
+    margin-top: 4%;
+    font-weight: bold;
+}
+
+.positionPlayers2{
+    display: inline-block;
+    margin-left: 53%;
+    margin-top: 4%;
+    font-weight: bold;
+}
+
+
+.lifeStyle1 {
+    display: inline-block;
+    width: 35%;
+    height: 15%;
+    border: 1px solid;
+    margin-top: 2%;
+    margin-left: 3%
+}
+
+.lifeStylefull1{
+    background-color: green;
+    height: 100%;
+
+}
+
+.lifeStylefull2{
+    background-color: green;
+    height: 100%;
+}
+
+.lifeStyle2 {
+    display: inline-block;
+    width: 35%;
+    height: 15%;
+    border: 1px solid;
+    margin-left: 23%;
+}
+
+.buttons {
+    width: 100%;
+    margin-top: 3%;
+    height: 15%;
+    box-shadow: 5px 10px 8px 0px #888888;
+}
+
+.dimenButton{
+    margin-top: 5%;
+    width: 15%;
+    height: 30%;
+    margin-right: 2%;
+    margin-left: 5%;
+}
