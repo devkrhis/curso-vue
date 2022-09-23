@@ -83,6 +83,17 @@
     width: 50%;
     height: 50%;
 }
-.consoleLog{
 
+.allLogMonster{
+    width: 90%;
+    height: 4%;
+    background-color: rgb(235, 27, 27);
+    box-shadow: 5px 10px 8px 0px #888888;
+}
+
+.allLogHuman{
+    width: 90%;
+    height: 4%;
+    background-color: rgb(19, 221, 19);
+    box-shadow: 5px 10px 8px 0px #888888;
 }

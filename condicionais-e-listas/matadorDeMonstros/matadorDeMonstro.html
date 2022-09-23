@@ -29,14 +29,14 @@
     </div>
 
     <div v-if="!hide" class="buttons">
-        <button type="button" id="uniqButton" class="uniqButton" @click="restart(); hide = !hide;" style="background-Color: rgb(127, 127, 214)"> Iniciar Jogo </button>
+        <button type="button" 
+        id="uniqButton" class="uniqButton" @click="restart(); hide = !hide;" style="background-Color: rgb(127, 127, 214)"> Iniciar Jogo </button>
     </div>
 
-    <template>
-        <div class="consoleLog">
-            <p> <h2> CONSOLE LOG </h2> </p>
-            <p> MONSTRO ATINGIU JOGADOR COM {{this.monsterDamage}} </p>
-            <p> JOGADOR ATINGIU MONSTRO COM {{this.humanDamage}} </p>
+    <template v-if="hide">
+        <p> <h2> CONSOLE LOG </h2> </p>
+        <div id="consoleLogAll">
+            
 
         </div>
     </template>
