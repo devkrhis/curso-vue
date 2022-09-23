@@ -5,12 +5,15 @@ new Vue ({
         lifeHuman: 100,
         widthMonster: '100%',
         lifeMonster: 100,
-        hide: false
+        hide: false,
+        monsterDamage: 0,
+        humanDamage: 0
     },
     methods: {
         attack(){
             //Aqui eu estou tirando a vida do HUMANO
-            this.lifeHuman -= (Math.floor(Math.random() * 20 )) // monstro
+            this.lifeHuman -= (Math.floor(Math.random() * 15 )) // monstro
+            this.monsterDamage = (Math.floor(Math.random() * 15 )) // LOG QUE VAI MOSTRAR NA TELA
             console.log(this.lifeHuman)
             this.widthHuman = {width: this.lifeHuman +"%"}
 
@@ -30,6 +33,7 @@ new Vue ({
             this.lifeMonster -= (Math.floor(Math.random() * 10)) // humano
             console.log(this.lifeMonster)
             this.widthMonster = {width: this.lifeMonster +"%"}
+            this.humanDamage = (Math.floor(Math.random() * 10)) // LOG QUE VAI MOSTRAR NA TELA
 
             if(this.lifeMonster <= 0 ){
                 this.widthMonster = {width: "0%"}
