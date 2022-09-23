@@ -8,21 +8,37 @@
         <p class="positionPlayers2"> Monstro </p>
         <div class="lifeStyle1">
             <div class="lifeStyleFull1" :style="widthHuman"></div>
+            <p class="lifeHumanMonsterPosition"> {{lifeHuman}}%</p>
         </div>
             
         <div class="lifeStyle2">
             <div class="lifeStyleFull2" :style="widthMonster"></div>
+            <p class="lifeHumanMonsterPosition"> {{lifeMonster}}%</p>
         </div>
 
         <div></div>
     </div>
 
-    <div class="buttons">
-        <button type="button" @click="attack" class="dimenButton" style="background-Color: rgba(255, 0, 0, 0.966)"> Ataque </button>
-        <button type="button" class="dimenButton" @click="specialAttack" style="background-Color: rgb(219, 144, 3)"> Ataque Especial </button>
-        <button type="button" class="dimenButton" @click="heal" style="background-Color: rgba(0, 128, 0, 0.932)"> Curar </button>
-        <button type="button" class="dimenButton" @click="restart" style="background-Color: rgba(128, 128, 128, 0.87)"> Desistir </button>
+    <div class="buttons" v-if="hide">
+        <template>
+            <button type="button" class="dimenButton" @click="attack" style="background-Color: rgba(255, 0, 0, 0.966)"> Ataque </button>
+            <button type="button" class="dimenButton" @click="specialAttack" style="background-Color: rgb(219, 144, 3)"> Ataque Especial </button>
+            <button type="button" class="dimenButton" @click="heal" style="background-Color: rgba(0, 128, 0, 0.932)"> Curar </button>
+            <button type="button" class="dimenButton" @click="restart" style="background-Color: rgba(128, 128, 128, 0.87)"> Desistir </button>
+        </template>
     </div>
+
+    <div v-if="!hide" class="buttons">
+        <button type="button" id="uniqButton" class="uniqButton" @click="restart(); hide = !hide;" style="background-Color: rgb(127, 127, 214)"> Iniciar Jogo </button>
+    </div>
+
+    <template>
+        <div>
+            <p> <h2> CONSOLE LOG </h2> </p>
+
+        </div>
+    </template>
+
 </div>
 
 <script src="app.js"></script>

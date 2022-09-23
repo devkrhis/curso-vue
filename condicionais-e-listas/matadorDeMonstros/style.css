@@ -50,6 +50,10 @@
     margin-left: 23%;
 }
 
+.lifeHumanMonsterPosition{
+    margin-left: 42%;
+}
+
 .buttons {
     width: 100%;
     margin-top: 3%;
@@ -71,4 +75,9 @@
 
 .widthHuman{
     width: 100%;
+}
+
+.uniqButton{
+    margin-left: 50%;
+    margin-top: 5%;
 }

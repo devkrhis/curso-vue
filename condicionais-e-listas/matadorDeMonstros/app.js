@@ -4,7 +4,8 @@ new Vue ({
         widthHuman: '100%',
         lifeHuman: 100,
         widthMonster: '100%',
-        lifeMonster: 100
+        lifeMonster: 100,
+        hide: false
     },
     methods: {
         attack(){
@@ -16,6 +17,7 @@ new Vue ({
             if(this.lifeHuman <= 0 ){
                 this.widthHuman = {width: "0%"}
                 alert("O Humano foi derrotado")
+                this.hide = false
             } else if(this.lifeHuman > 70) {
                 this.widthHuman = {width: this.lifeHuman + "%", backgroundColor: "green"}
             } else if(this.lifeHuman <= 70 && this.lifeHuman >= 40) {
@@ -32,6 +34,7 @@ new Vue ({
             if(this.lifeMonster <= 0 ){
                 this.widthMonster = {width: "0%"}
                 alert("O Monstro foi derrotado")
+                this.hide = false
             } else if(this.lifeMonster > 70) {
                 this.widthMonster = {width: this.lifeMonster + "%", backgroundColor: "green"}
             } else if(this.lifeMonster <= 70 && this.lifeMonster >= 40) {
@@ -49,6 +52,8 @@ new Vue ({
 
             if(this.lifeMonster <= 0 ){
                 this.widthMonster = {width: "0%"}
+                alert("O Monstro foi derrotado")
+                this.hide = false
             } else if(this.lifeMonster > 70) {
                 this.widthMonster = {width: this.lifeMonster + "%", backgroundColor: "green"}
             } else if(this.lifeMonster <= 70 && this.lifeMonster >= 40) {
@@ -66,6 +71,7 @@ new Vue ({
             if(this.lifeHuman <= 0 ){
                 this.widthHuman = {width: "0%"}
                 alert("O Humano foi derrotado")
+                this.hide = false
             } else if(this.lifeHuman > 70) {
                 this.widthHuman = {width: this.lifeHuman + "%", backgroundColor: "green"}
             } else if(this.lifeHuman <= 70 && this.lifeHuman >= 40) {
@@ -99,7 +105,7 @@ new Vue ({
             this.lifeMonster = 100
             this.widthHuman = 100
             this.lifeHuman = 100
-
+            this.hide = false
         }
     }
 })
