@@ -1,0 +1,56 @@
+<meta charset="UTF-8">
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app1">
+    <p> {{ Interpolacao1 }} </p>
+    <button type="button" @click="adicionandoValor"> adicionandoValor </button>
+</div>
+
+<div id="app2">
+    <p> {{ Interpolacao2 }} </p>
+    <button type="button" @click="adicionandoValor"> adicionandoValor </button>
+</div>
+
+<div id="teste">
+    <p> {{ TesteMagico }}</p>
+    <button type="button" @click="adicionaCaracter"> adiciona </button>
+</div>
+
+<script>
+    new Vue ({
+        el: '#app1',
+        data: {
+            Interpolacao1: 'Texto Imporlacao1'
+        },
+        methods: {
+            adicionandoValor(){
+                this.Interpolacao1 += "*..*"
+            }
+        }
+    })
+
+    new Vue ({
+        el: "#app2",
+        data: {
+            Interpolacao2: "Texto Imporlacao2"
+        },
+        methods: {
+            adicionandoValor(){
+                this.Interpolacao2 += "Dança Gatinho!"
+            }
+        }
+    })
+
+    new Vue ({
+        el: "#teste",
+        data: {
+            TesteMagico: "Krhis Lindão"
+        },
+        methods: {
+            adicionaCaracter(){
+                this.TesteMagico += "  Sorriso :) "
+            }
+        }
+    })
+</script>
