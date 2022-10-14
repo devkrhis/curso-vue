@@ -1,0 +1,48 @@
+<meta charset="UTF-8">
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p> {{ titulo01 }} </p>
+    <button type="button" @click="adicionandoTexto"> Clique Aqui</button>
+</div>
+
+<div id="app2">
+    <p> {{ titulo02 }} </p>
+    <button type="button" @click="adicionandoTextoPontilhado"> Clique Aqui</button>
+</div>
+
+
+<script>
+   const formula1 = new Vue({
+        el: "#app",
+        data: {
+            titulo01: "Teste Curso VUE"
+        },
+        methods: {
+            adicionandoTexto(){
+                formula2.titulo02 += "  DANÇA ... DANÇA"
+            }
+        }
+    })
+
+    const formula2 = new Vue ({
+        el: "#app2",
+        data: {
+            titulo02: "Teste Personalizado"
+        },
+        methods: {
+            adicionandoTextoPontilhado(){
+                formula1.titulo01 += "**...**"
+            }
+        }
+    })
+
+    setTimeout(() => {
+        formula1.titulo01 = "Mudando o texto MUNDANO"
+    }, 2000)
+
+    setInterval(() => {
+        formula2.titulo02 = "Alterando o mundo MUNDANO para Texto"
+    }, 4000)
+</script>
