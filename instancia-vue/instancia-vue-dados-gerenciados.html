@@ -1,0 +1,27 @@
+<meta charset="UTF-8">
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <p> {{ testeOne }} {{ novaInfo }} </p>
+    <button type="button" @click="clickMe"> Clica </button>
+</div>
+
+<script>
+    const teste = new Vue ({
+        el: "#app",
+        data: {
+            testeOne: "Teste virtualizado"
+        },
+        methods: {
+            clickMe(){
+                this.testeOne += "  Dançaa! -- "
+            }
+        }
+    })
+
+    teste.novaInfo = 'Teste'
+    console.log(teste.novaInfo) // consigo ver o valor no log dessa forma, porém não consigo interpolar esse valor.
+    // quando está externo ele não é reativo, tem que estar dentro do Vue
+
+</script>
