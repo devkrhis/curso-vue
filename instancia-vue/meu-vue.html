@@ -1,0 +1,53 @@
+<meta charset="UTF-8">
+
+<div id="app">
+    {{ nome }} {{ sobrenome }} {{ 1 + 1 }}
+</div>
+
+<script>
+    function MeuVue(params) {
+        // this.$el -> muitas variaveis internas do vue começa com $
+        this.$el = document.querySelector(params.el)
+        this.$data = params.data
+
+        for (let atr in this.$data){
+            //this minha instancia, segundo parametro e o nome do atributo e o terceiro é um objeto onde eu posso personalizar o que eu quero
+            Object.defineProperties(this, atr, {
+                // get ele trabalha como proxy, mas como assim? a partir dessa propriedade ele vai retornar outra propriedade
+                get: () => {
+                    // vai retornar esse atributo que defini
+                    return this.$data[atr]
+                },
+                // set ele recebe um valor e altera dentro do atributo, sendo assim altera dentro do this.$data
+                set: value => {
+                    // aqui pode executar algum codigo, que vai interceptar o momento antes de mudar
+                    this.$data[atr] = value
+                    // aqui o pode executar algum codigo, que vai interceptar o momento depois de ter mudado.
+                }
+            })
+        }
+
+        //interpolar
+        const regex = /\{\{([\s\w)(,.+*-]*)\}\}/g
+        this.$el.innerHTML = this.$el.innerHTML.replace(regex, (match, $1) => {
+            const value = this[$1.trim()]
+            return value ? value : eval($1)
+        })
+
+    }
+
+    const vm =  new MeuVue({
+        el: "#app",
+        data: {
+            nome: "Maria",
+            sobrenome: "Silva"
+        }
+    })
+
+    console.log(vm.nome)
+    console.log(vm.$data.nome)
+
+    vm.nome = "Pedro"
+    console.log(vm.nome)
+    console.log(vm.$data.nome)
+</script>
