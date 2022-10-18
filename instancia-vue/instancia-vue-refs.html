@@ -4,7 +4,7 @@
 
 <div id="app">
     <!-- Essa é a forma oficial de utilizar o ref, coloca o ref e o nome que você quer referênciar.--> 
-    <p ref="referencialRef"> {{ referencia1 }} </p>
+    <h1 ref="testRef"> {{ referencia1 }} </h1>
     <p> {{ referencia2 }}</p>
     <button type="button" @click="addRef"> Add #</button>
     <button type="button" @click="noAddRef"> No Add</button>
@@ -27,8 +27,8 @@
 
         }
     })
-    // essa é a forma de você acessar o ref, mas não é recomendado fazer isto.
-    vm.$refs.referencialRef.innerText = "Loucura"
+    // essa é a forma de você acessar o ref, mas não é recomendado fazer isto, porque dentro do dom ele está com outro valor, sendo assim quando eu adiciono mais alguma coisa ele não é alterado e nem adicionado nada com o click de button.
+    vm.$refs.testRef.innerText = "Loucura"
 
 
 </script>
