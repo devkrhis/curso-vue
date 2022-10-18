@@ -1,0 +1,39 @@
+<meta charset="UTF-8">
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app"></div>
+
+<script>
+    const vm = new Vue ({
+        // dessa forma tambem vai funcionar, ele entende como se tivesse dentro do div id="app", porém e necessário colocar um <div> algo que englobe tudo
+        template: 
+        `
+        <div>
+        <h1> {{ referencia1 }} </h1>
+            <p> {{ referencia2 }}</p>
+            <button type="button" @click="addRef"> Add #</button>
+            <button type="button" @click="noAddRef"> No Add</button>
+        </div>
+            `,
+        data: {
+            referencia1: "Teste com REF",
+            referencia2: "Teste sem REF"
+        },
+        methods: {
+            addRef(){
+                this.referencia1 += "##"
+            },
+            noAddRef(){
+                this.referencia2 += "No No NO"
+            }
+
+        }
+    })
+    // 1 forma - dessa forma e como se tive o el: "#app" dentro do new Vue
+    // vm.$mount('#app')
+
+    // 2 forma - ele também entende como se tive o el
+    vm.$mount()
+    document.querySelector('#app').appendChild(vm.$el)
+</script>
