@@ -1,0 +1,43 @@
+<meta charset="UTF-8">
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<div id="app">
+    <comp></comp>
+    <comp></comp>
+</div>
+
+<script>
+    Vue.component('comp', {
+        template:
+        `
+        <div> 
+            <p> {{ interpolando1 }} </p>
+            <p> {{ interpolando2 }}</p>
+            <button type="button" @click="clickOn"> Click ON</button>
+            <button type="button" @click="clickOff"> Click OFF</button>
+        </div>
+        `,
+        data: function(){
+            // é necessário ser uma function, porque se não o componente sempre vai apontar para o mesmo dados, então se você clicar no button vai atualizar todos e não apenas o que está apontando, ele não se torna mais independente.
+            return {
+                interpolando1: "Aula de componentes",
+                interpolando2: "Numero 84"
+            }
+        },
+        methods: {
+            clickOn(){
+                this.interpolando1 += "!!!!"
+            },
+            clickOff(){
+                this.interpolando2 += "#! foco #!"
+            }
+        }
+    })
+
+    const nvm = new Vue ({
+        // o viu verifica se tem o 'comp' lá em cima abaixo do app e também verifica o nome dentro do Vue.component, quando ele verifica e ve que está correndo ele consegue interpolar normalmente se tiver um template dessa forma.
+        // lembrando que a <div> está englobando tudo </div>
+        el: "#app"
+    })
+</script>
