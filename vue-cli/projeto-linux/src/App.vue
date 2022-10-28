@@ -1,26 +1,28 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+<div id="app"> {{ titulo }} </div>
+<button type="button" @click="clickMe"> Clica ai</button>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  data: function(){
+    return {
+      titulo: 'Teste Data usando Vue JS!!'
+    }
+  },
+  methods: {
+    clickMe(){
+      this.titulo += "$#"
+    }
   }
+
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app{
+    background-color: chocolate;
+    color: #fff;
+  }
+
 </style>
