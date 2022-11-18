@@ -3,6 +3,7 @@
         <h1>Componente Usuário</h1>
         <p>Esse é um componente muito legal!</p>
         <hr>
+        <button type="button" @click="trocarNome"> Trocar Nome</button>
         <div class="componentes">
             <app-usuario-info />
             <app-usuario-editar />
@@ -20,7 +21,14 @@ export default {
         AppUsuarioEditar
     },
     data(){
-
+        return {
+            nome: 'Pedro'
+        }
+    },
+    methods: {
+        trocarNome(){
+            this.nome = "Ana"
+        }
     }
 }
 </script>
