@@ -5,8 +5,8 @@
         <hr>
         <button type="button" @click="trocarNome"> Trocar Nome</button>
         <div class="componentes">
-            <app-usuario-info />
-            <app-usuario-editar />
+            <AppUsuarioInfo :nome="nome" />
+            <AppUsuarioEditar />
         </div>
     </div>
 </template>
