@@ -2,32 +2,19 @@
 
 <template>
   <div id="app">
-    <pokemonIndex :descricao="descricao"/>
-    <button type="button" @click="changeDescription"> Change Description</button>
+    <pokemonController/>    
   </div>
 </template>
 
 <script>
 
-import pokemonIndex from "./components/pokemonIndex.vue";
+import pokemonController from "./components/pokemonController.vue";
 
 export default {
 /* eslint-disable */
   name: 'App',
   components: {
-    pokemonIndex
-  },
-  data(){
-    return {
-      descricao: "Teste"
-
-    }
-  },
-  methods: {
-    changeDescription(){
-      this.descricao = "Alteração realizada com Sucesso"
-    }
-
+    pokemonController
   }
 }
 </script>
