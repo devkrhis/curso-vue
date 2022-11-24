@@ -1,8 +1,8 @@
 <template>
-    <div id="index">
+    <div class="index">
         <ul> <li> {{ Valores }} </li> </ul> <!-- Mostrar os valores -->
-        <ul> <li> <a href="https://github.com/krhistopher"> {{ Portfolio }} </a> </li> </ul> <!-- Redirecionar para o github-->
-        <ul> <li> <a href="https://www.linkedin.com/in/krhistopher-kauling-novak-b4364712a/"> {{ Contato }} </a> </li> </ul> <!-- Redirecionar para Contato-->
+        <ul> <li> <a href="https://github.com/krhistopher" target="_blank"> {{ Portfolio }} </a> </li> </ul> <!-- Redirecionar para o github-->
+        <ul> <li> <a href="https://www.linkedin.com/in/krhistopher-kauling-novak-b4364712a/" target="_blank"> {{ Contato }} </a> </li> </ul> <!-- Redirecionar para Contato-->
     </div>
 </template>
 
@@ -15,8 +15,8 @@ export default {
 </script>
 
 <style scoped>
-index{
-    background-color: black;
+.index{
+    border: 1px solid black;
 }
 
 </style>
