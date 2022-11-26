@@ -4,6 +4,7 @@
         <button type="button" @click="changeName"> Change "Valores"</button>
         <hr>
         <pokemonHome/>
+        <pokemonLog/>
     </div>
     
     
@@ -14,12 +15,14 @@
 
 import pokemonIndex from './pokemonIndex.vue';
 import pokemonHome from './pokemonHome.vue';
+import pokemonLog from './pokemonLog.vue';
 
 export default {
     /* eslint-disable */
     components: {
         pokemonIndex,
         pokemonHome,
+        pokemonLog,
     },
     data(){
         return {

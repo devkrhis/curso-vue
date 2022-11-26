@@ -13,7 +13,12 @@
 
                 </div>
             </h3>
-            
+        </div>
+        <div class="selectionOfButtons">
+            <button type="button"> Ataque </button>
+            <button type="button"> Ataque Especial </button>
+            <button type="button"> Curar </button>
+            <button type="button"> Desistir </button>
         </div>
     </div>
     
@@ -46,6 +51,7 @@ export default {
     width: 250%;
     padding: 8%;
     border: 1px solid black;
+    margin-left: -80%;
 }
 
 .lifeMonster{
@@ -53,7 +59,18 @@ export default {
     width: 250%;
     padding: 8%;
     border: 1px solid black;
+    margin-left: -80%;
 
+}
+.selectionOfButtons {
+    display: flex;
+    justify-content: center;
+}
+.selectionOfButtons button {
+    padding: 1%;
+    margin: 2% 1% 0.5% 1%;
+    color: red;
+    border-radius: 30px;
 }
 
 </style>
