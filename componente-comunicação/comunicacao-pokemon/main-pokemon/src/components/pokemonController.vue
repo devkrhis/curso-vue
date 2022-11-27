@@ -1,7 +1,7 @@
 <template>
     <div id="controller">
         <pokemonIndex :valores="Valores" :portfolio="Portfolio" :contato="Contato"/>
-        <button type="button" @click="changeName"> Change "Valores"</button>
+        <button type="button" @click="changeName"> Clique para ver os Valores</button>
         <hr>
         <pokemonHome/>
         <pokemonLog/>
@@ -33,12 +33,13 @@ export default {
     },
     methods: {
         changeName(){
-            this.Valores = "Alteração realizada com sucesso"
+            this.Valores = "Lealdade, Honestidade e Respeito"
         }
     }
 }
 </script>
 
 <style scoped>
+
 
 </style>
