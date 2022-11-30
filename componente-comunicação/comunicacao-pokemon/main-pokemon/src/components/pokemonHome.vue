@@ -4,13 +4,15 @@
         <div class="lifeBar">
             <h3> Vida de Jogador
                 <div class="lifePlayer"> 
-                    <div class="sublifePlayer"></div>
+                    <div class="sublifePlayer" :style="sublifeWidth"></div>
+                    <strong> Vida </strong>
                 </div>
             </h3>
             
             <h3> Vida do Monstro
                 <div class="lifeMonster"> 
                     <div class="sublifeMonster" :style="sublifeWidth"></div>
+                    <strong> Vida </strong>
                 </div>
             </h3>
         </div>
@@ -30,10 +32,9 @@ export default {
     data(){
         return {
             sublifeWidth: {
-                width: '100%'
+                width: '100%',
             },
             dano: 0,
-            danoTotal: 0,
 
         }
     },
@@ -41,7 +42,6 @@ export default {
         atack(){
             this.dano = this.ataque = Math.floor(Math.random() * 8)
             console.log(this.dano)
-            console.log(this.danoTotal)
             console.log(this.sublifeWidth.width, "Dano tomado")
             return this.sublifeWidth.width = parseInt(this.sublifeWidth.width) - this.dano + '%'
             
@@ -72,24 +72,21 @@ export default {
 .lifePlayer{
     height: 5%;
     width: 250%;
-    padding: 8%;
+    padding: 0% 0px 15% 0px;
     border: 1px solid black;
     margin-left: -80%;
 }
 
 .sublifePlayer{
     background-color: green;
-    border: 1px solid black;
-    padding: 3.3%;
-    margin-top: -3.2%;
-    margin-left: -3.5%;
-    width: 100%;
+    padding: 0% 0px 7.4% 0px;; /* BUGZINHO AQUI CORRIGIR AMANHÃ */
+    margin-bottom: 2%;
 }
 
 .lifeMonster{
     height: 5%;
     width: 250%;
-    padding: 8%;
+    padding: 0% 0px 15% 0px;
     border: 1px solid black;
     margin-left: -80%;
 
@@ -97,10 +94,8 @@ export default {
 
 .sublifeMonster{
     background-color: green;
-    border: 1px solid black;
-    padding: 3.3%; /* BUGZINHO AQUI CORRIGIR AMANHÃ */
-    margin-top: -3.2%;
-    margin-left: -3.5%;
+    padding: 0% 0px 7.2% 0px;; /* BUGZINHO AQUI CORRIGIR AMANHÃ */
+    margin-bottom: 2%;
 }
 
 .selectionOfButtons {
