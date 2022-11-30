@@ -10,7 +10,7 @@
             
             <h3> Vida do Monstro
                 <div class="lifeMonster"> 
-                    <div class="sublifeMonster"></div>
+                    <div class="sublifeMonster" :style="sublifeWidth"></div>
                 </div>
             </h3>
         </div>
@@ -29,18 +29,21 @@ export default {
     props: ['iniciarJogo'],
     data(){
         return {
-            width: 100,
-            dano: 0
+            sublifeWidth: {
+                width: '100%'
+            },
+            dano: 0,
+            danoTotal: 0,
 
         }
     },
     methods: {
         atack(){
             this.dano = this.ataque = Math.floor(Math.random() * 8)
-            console.log(this.width)
             console.log(this.dano)
-            console.log("width: " - this.width - this.dano)
-            return("this.width: " - this.dano)
+            console.log(this.danoTotal)
+            console.log(this.sublifeWidth.width, "Dano tomado")
+            return this.sublifeWidth.width = parseInt(this.sublifeWidth.width) - this.dano + '%'
             
 
         },
@@ -95,10 +98,9 @@ export default {
 .sublifeMonster{
     background-color: green;
     border: 1px solid black;
-    padding: 3.3%;
+    padding: 3.3%; /* BUGZINHO AQUI CORRIGIR AMANHÃ */
     margin-top: -3.2%;
     margin-left: -3.5%;
-    width: 100%;
 }
 
 .selectionOfButtons {
