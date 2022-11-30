@@ -42,15 +42,6 @@ export default {
         iniciarGame(){
             this.iniciarJogo = true
         },
-        desistir(){
-            if(this.iniciarJogo == true){
-                alert("Você deseja realmente desistir?")
-                this.iniciarJogo = false
-            } else {
-                this.iniciarJogo = false
-            }
-            
-        }
     }
 }
 </script>
