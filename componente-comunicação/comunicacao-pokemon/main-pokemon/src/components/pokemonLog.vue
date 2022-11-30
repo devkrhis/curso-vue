@@ -22,4 +22,4 @@ export default {
     justify-content: center;
 }
 
-</style>sublifeWidth
+</style>

@@ -7,7 +7,6 @@
         <div v-if="this.iniciarJogo == false">
             <button type="button" @click="iniciarGame" class="startGameController" > <strong> Iniciar Jogo </strong></button>
         </div>
-        <pokemonLog/>
     </div>
     
     

@@ -22,11 +22,16 @@
             <button type="button" @click="heal"> Curar </button>
             <button type="button" @click="desist"> Desistir </button>
         </div>
+        
+        <div class="consoleDeLog">
+            <h1> </h1>
+        </div>
     </div>
     
 </template>
 
 <script>
+
 export default {
     props: ['iniciarJogo','Desistir'],
     data(){
@@ -41,6 +46,7 @@ export default {
             danoMonster: 0,
             danoRecebidoPlayer: 100,
             danoRecebidoMonster: 100,
+            dadoLog: [],
             
 
         }
@@ -55,11 +61,13 @@ export default {
             this.danoRecebidoMonster = parseInt(this.sublifeMonster.width)
             console.log(this.danoRecebidoMonster, "Dano calculado")
 
-            console.log(this.sublifeMonster.width, "Dano tomado pelo monstro")
-            console.log(this.sublifePlayer.width, "Dano tomado pelo player")
             this.sublifeMonster.width = parseInt(this.sublifeMonster.width) - this.danoMonster + '%'
             this.sublifePlayer.width = parseInt(this.sublifePlayer.width) - this.danoPlayer + '%'
-            console.log(this.sublifePlayer.width)
+
+            this.dadoLog.unshift(this.danoMonster)
+            this.dadoLog.unshift(this.danoPlayer)
+            console.log(this.dadoLog)
+
             if(this.danoRecebidoPlayer <= 0){
                 alert("Você Perdeu")
                 this.sublifePlayer.width = "0%"
@@ -82,6 +90,10 @@ export default {
             this.sublifeMonster.width = parseInt(this.sublifeMonster.width) - this.danoMonster + '%'
             this.sublifePlayer.width = parseInt(this.sublifePlayer.width) - this.danoPlayer + '%'
             console.log(this.sublifePlayer.width)
+
+            this.dadoLog.unshift(this.danoMonster) // AQUI É ONDE VAI POPULAR O LOG
+            this.dadoLog.unshift(this.danoPlayer) // AQUI É ONDE VAI POPULAR O LOG
+            console.log(this.dadoLog) // AQUI É ONDE VAI MOSTRAR O LOG
 
 
             if(this.danoRecebidoPlayer <= 0){
@@ -108,6 +120,10 @@ export default {
             this.sublifePlayer.width = parseInt(this.sublifePlayer.width) + this.danoPlayer + '%'
 
 
+            this.dadoLog.unshift(this.danoMonster) // AQUI É ONDE VAI POPULAR O LOG
+            this.dadoLog.unshift(this.danoPlayer) // AQUI É ONDE VAI POPULAR O LOG
+            console.log(this.dadoLog) // AQUI É ONDE VAI MOSTRAR O LOG
+
             if(this.danoRecebidoPlayer >= 93){
                 alert("Você PLAYER está com o maximo de vida")
                 this.sublifePlayer.width = "100%"
@@ -125,6 +141,9 @@ export default {
             this.sublifeMonster.width = "100%"
             this.danoRecebidoMonster = 100
             alert("VOCÊ DESISTIU DO JOGO")
+
+        },
+        damageLog(){
 
         }
 
