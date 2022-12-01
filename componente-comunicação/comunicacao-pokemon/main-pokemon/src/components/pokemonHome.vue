@@ -22,18 +22,25 @@
             <button type="button" @click="heal"> Curar </button>
             <button type="button" @click="desist"> Desistir </button>
         </div>
-        
+
         <div class="consoleDeLog">
-            <h1> </h1>
+            <h1> CONSOLE DE LOG</h1>
+            <hr>
+            <div v-for="dadosDoLog in dadoLog" :key="dadosDoLog" class="consoleLogStyle">
+                <h3> {{dadosDoLog}} </h3>
+            </div>
         </div>
+        
+
     </div>
+
     
 </template>
 
 <script>
 
 export default {
-    props: ['iniciarJogo','Desistir'],
+    props: ['iniciarJogo'],
     data(){
         return {
             sublifeMonster: {
@@ -47,14 +54,17 @@ export default {
             danoRecebidoPlayer: 100,
             danoRecebidoMonster: 100,
             dadoLog: [],
-            
-
         }
     },
     methods: {
         attack(){
-            this.danoMonster = this.ataque = Math.floor(Math.random() * 8) // DANO QUE EU VOU DAR NO MONSTRO
-            this.danoPlayer = this.ataque = Math.floor(Math.random() * 10) // DANO QUE EU VOU SOFRER
+            this.danoMonster = this.ataque = Math.floor(Math.random() * 6) // DANO QUE EU VOU DAR NO MONSTRO
+            this.danoPlayer = this.ataque = Math.floor(Math.random() * 9) // DANO QUE EU VOU SOFRER
+
+            this.dadoLog.unshift(this.danoMonster) // aqui vou adicionar o dano ao log
+            console.log(this.dadoLog + "Dano que o monstro levou")
+            this.dadoLog.unshift(this.danoPlayer) // aqui vou adicionar o dano ao log
+            console.log(this.dadoLog + "Dano que o humano levou levou")
 
             this.danoRecebidoPlayer = parseInt(this.sublifePlayer.width)
             console.log(this.danoRecebidoPlayer, "Dano calculado")
@@ -63,10 +73,6 @@ export default {
 
             this.sublifeMonster.width = parseInt(this.sublifeMonster.width) - this.danoMonster + '%'
             this.sublifePlayer.width = parseInt(this.sublifePlayer.width) - this.danoPlayer + '%'
-
-            this.dadoLog.unshift(this.danoMonster)
-            this.dadoLog.unshift(this.danoPlayer)
-            console.log(this.dadoLog)
 
             if(this.danoRecebidoPlayer <= 0){
                 alert("Você Perdeu")
@@ -82,6 +88,11 @@ export default {
             this.danoMonster = this.ataque = Math.floor(Math.random() * 15) // DANO QUE EU VOU DAR NO MONSTRO
             this.danoPlayer = this.ataque = Math.floor(Math.random() * 11) // DANO QUE EU VOU SOFRER
 
+            this.dadoLog.unshift(this.danoMonster) // aqui vou adicionar o dano ao log
+            console.log(this.dadoLog + "Dano que o monstro levou")
+            this.dadoLog.unshift(this.danoPlayer) // aqui vou adicionar o dano ao log
+            console.log(this.dadoLog + "Dano que o humano levou levou")
+
             this.danoRecebidoPlayer = parseInt(this.sublifePlayer.width) // AQUI E ONDE ESTOU DIMINUINDO A VIDA DO PLAYER
             console.log(this.danoRecebidoPlayer, "Dano calculado")
             this.danoRecebidoMonster = parseInt(this.sublifeMonster.width) // AQUI E ONDE ESTOU DIMINUIDO A VIDA DO MONSTRO
@@ -91,11 +102,7 @@ export default {
             this.sublifePlayer.width = parseInt(this.sublifePlayer.width) - this.danoPlayer + '%'
             console.log(this.sublifePlayer.width)
 
-            this.dadoLog.unshift(this.danoMonster) // AQUI É ONDE VAI POPULAR O LOG
-            this.dadoLog.unshift(this.danoPlayer) // AQUI É ONDE VAI POPULAR O LOG
-            console.log(this.dadoLog) // AQUI É ONDE VAI MOSTRAR O LOG
-
-
+            // Condicional de vitoria ou derrota
             if(this.danoRecebidoPlayer <= 0){
                 alert("Você Perdeu")
                 this.sublifePlayer.width = "0%"
@@ -110,6 +117,11 @@ export default {
             this.danoMonster = this.curar = Math.floor(Math.random() * 15) // Curando o monstro
             this.danoPlayer = this.curar = Math.floor(Math.random() * 11) // Curando o player
 
+            this.dadoLog.unshift(this.danoMonster) // aqui vou adicionar o curar ao log
+            console.log(this.dadoLog + "Dano que o monstro levou")
+            this.dadoLog.unshift(this.danoPlayer) // aqui vou adicionar o curar ao log
+            console.log(this.dadoLog + "Dano que o humano levou levou")
+
 
             this.danoRecebidoPlayer = parseInt(this.sublifePlayer.width) // AQUI E ONDE ESTOU DIMINUINDO A VIDA DO PLAYER
             console.log(this.danoRecebidoPlayer, "Cura calculado")
@@ -120,10 +132,7 @@ export default {
             this.sublifePlayer.width = parseInt(this.sublifePlayer.width) + this.danoPlayer + '%'
 
 
-            this.dadoLog.unshift(this.danoMonster) // AQUI É ONDE VAI POPULAR O LOG
-            this.dadoLog.unshift(this.danoPlayer) // AQUI É ONDE VAI POPULAR O LOG
-            console.log(this.dadoLog) // AQUI É ONDE VAI MOSTRAR O LOG
-
+            // Condicional de cura para alcancar o maximo.
             if(this.danoRecebidoPlayer >= 93){
                 alert("Você PLAYER está com o maximo de vida")
                 this.sublifePlayer.width = "100%"
@@ -141,9 +150,6 @@ export default {
             this.sublifeMonster.width = "100%"
             this.danoRecebidoMonster = 100
             alert("VOCÊ DESISTIU DO JOGO")
-
-        },
-        damageLog(){
 
         }
 
@@ -207,6 +213,15 @@ export default {
     margin: 2% 1% 0.5% 1%;
     color: red;
     border-radius: 30px;
+}
+
+.consoleDeLog{
+    margin-top: 10%;
+}
+
+.consoleLogStyle{
+    background-color: red;
+
 }
 
 </style>

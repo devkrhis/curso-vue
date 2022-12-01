@@ -3,7 +3,7 @@
         <pokemonIndex :valores="Valores" :portfolio="Portfolio" :contato="Contato"/>
         <button type="button" @click="changeName"> Clique para ver os Valores</button>
         <hr>
-        <pokemonHome :iniciarJogo="iniciarJogo" :desistir="desistir"/>
+        <pokemonHome :iniciarJogo="iniciarJogo"/>
         <div v-if="this.iniciarJogo == false">
             <button type="button" @click="iniciarGame" class="startGameController" > <strong> Iniciar Jogo </strong></button>
         </div>
@@ -17,14 +17,12 @@
 
 import pokemonIndex from './pokemonIndex.vue';
 import pokemonHome from './pokemonHome.vue';
-import pokemonLog from './pokemonLog.vue';
 
 export default {
     /* eslint-disable */
     components: {
         pokemonIndex,
         pokemonHome,
-        pokemonLog,
     },
     data(){
         return {
