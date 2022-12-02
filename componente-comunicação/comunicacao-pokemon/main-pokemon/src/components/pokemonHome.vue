@@ -26,8 +26,8 @@
         <div class="consoleDeLog">
             <h1> CONSOLE DE LOG</h1>
             <hr>
-            <div v-for="dadosDoLog in dadoLog" :key="dadosDoLog" class="consoleLogStyle">
-                <h3> {{dadosDoLog}} </h3>
+            <div v-for="dadosDoLog in dadoLog" :key="dadosDoLog" :style="testStyle">
+                <h3> {{dadosDoLog}}"O dano do monstro foi" </h3>
             </div>
         </div>
         
@@ -54,6 +54,9 @@ export default {
             danoRecebidoPlayer: 100,
             danoRecebidoMonster: 100,
             dadoLog: [],
+            testStyle: {
+                color: 'red',
+            }
         }
     },
     methods: {
@@ -215,13 +218,14 @@ export default {
     border-radius: 30px;
 }
 
-.consoleDeLog{
+.consoleDeLog h1{
     margin-top: 10%;
+    margin-left: 40%;
 }
 
-.consoleLogStyle{
-    background-color: red;
-
+.consoleDeLog h3{
+    margin-left: 1%;
 }
+
 
 </style>
