@@ -5,7 +5,7 @@
         <hr>
         <button type="button" @click="trocarNome"> Trocar Nome</button>
         <div class="componentes">
-            <AppUsuarioInfo :nome="nome" />
+            <AppUsuarioInfo :nomeDoProps="nome" />
             <AppUsuarioEditar />
         </div>
     </div>
